@@ -73,17 +73,17 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-cyber-gradient cyber-grid">
+    <div className="min-h-screen bg-professional-gradient professional-grid">
       <div className="flex h-screen text-white relative">
         
         {/* Enhanced Sidebar */}
         <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} fixed inset-y-0 left-0 z-50 w-80 glass-panel transform transition-all duration-500 ease-out lg:translate-x-0 lg:static lg:inset-0`}>
           <div className="flex flex-col h-full">
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-neon-green/20">
+            <div className="flex items-center justify-between p-6 border-b border-professional-500/20">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-neon-green to-neon-blue rounded-lg flex items-center justify-center pulse-glow">
-                  <Cpu className="w-5 h-5" />
+                <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-lg flex items-center justify-center pulse-glow">
+                  <Cpu className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold glow-text">PRIMAS.AI</h1>
@@ -104,8 +104,8 @@ export default function Home() {
                 onClick={newChat}
                 className="flex items-center w-full p-4 text-left rounded-xl tech-button hover:scale-[1.02] transition-transform group"
               >
-                <div className="w-8 h-8 bg-gradient-to-r from-neon-green to-neon-blue rounded-lg flex items-center justify-center mr-3 group-hover:shadow-cyber">
-                  <Plus className="w-4 h-4" />
+                <div className="w-8 h-8 bg-gradient-to-r from-professional-500 to-professional-600 rounded-lg flex items-center justify-center mr-3 group-hover:shadow-professional">
+                  <Plus className="w-4 h-4 text-white" />
                 </div>
                 <span className="font-medium">Initialize New Session</span>
               </button>
@@ -114,11 +114,11 @@ export default function Home() {
             {/* Chat History */}
             <div className="flex-1 overflow-y-auto px-6">
               <div className="space-y-3">
-                <h3 className="text-sm font-medium text-neon-green uppercase tracking-wider">Neural History</h3>
+                <h3 className="text-sm font-medium text-accent-blue uppercase tracking-wider">Neural History</h3>
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="p-3 rounded-lg glass-panel hover:bg-white/10 cursor-pointer transition-all group">
                     <div className="flex items-center space-x-3">
-                      <Grid3X3 className="w-4 h-4 text-neon-green/60" />
+                      <Grid3X3 className="w-4 h-4 text-accent-blue/60" />
                       <div>
                         <p className="text-sm text-white/80 group-hover:text-white">Session {i}</p>
                         <p className="text-xs text-gray-500">Neural analysis completed</p>
@@ -130,24 +130,24 @@ export default function Home() {
             </div>
 
             {/* System Status */}
-            <div className="p-6 border-t border-neon-green/20">
+            <div className="p-6 border-t border-professional-500/20">
               <div className="glass-panel p-4 rounded-xl">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-sm font-medium">System Status</span>
-                  <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-accent-blue rounded-full animate-pulse"></div>
                 </div>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between">
                     <span className="text-gray-400">CPU Usage</span>
-                    <span className="text-neon-green">23%</span>
+                    <span className="text-accent-blue">23%</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Neural Load</span>
-                    <span className="text-neon-blue">67%</span>
+                    <span className="text-accent-light">67%</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Response Time</span>
-                    <span className="text-neon-green">0.03ms</span>
+                    <span className="text-accent-blue">0.03ms</span>
                   </div>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function Home() {
         {/* Main Content */}
         <div className="flex-1 flex flex-col relative">
           {/* Mobile Header */}
-          <header className="flex items-center justify-between p-4 glass-panel lg:hidden border-b border-neon-green/20">
+          <header className="flex items-center justify-between p-4 glass-panel lg:hidden border-b border-professional-500/20">
             <button
               onClick={() => setSidebarOpen(true)}
               className="p-3 rounded-xl tech-button"
@@ -166,7 +166,7 @@ export default function Home() {
               <Menu className="w-5 h-5" />
             </button>
             <div className="flex items-center space-x-2">
-              <Cpu className="w-5 h-5 text-neon-green" />
+              <Cpu className="w-5 h-5 text-accent-blue" />
               <h1 className="text-lg font-bold glow-text">PRIMAS.AI</h1>
             </div>
             <div className="w-11"></div>
@@ -177,11 +177,11 @@ export default function Home() {
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full p-8 text-center">
                 <div className="relative mb-8">
-                  <div className="w-24 h-24 bg-gradient-to-r from-neon-green to-neon-blue rounded-2xl flex items-center justify-center pulse-glow animate-float">
-                    <Bot className="w-12 h-12 text-black" />
+                  <div className="w-24 h-24 bg-gradient-to-r from-professional-500 to-professional-600 rounded-2xl flex items-center justify-center pulse-glow animate-float">
+                    <Bot className="w-12 h-12 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-neon-green rounded-full flex items-center justify-center">
-                    <Zap className="w-3 h-3 text-black" />
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent-blue rounded-full flex items-center justify-center">
+                    <Zap className="w-3 h-3 text-white" />
                   </div>
                 </div>
                 <h2 className="text-3xl font-bold mb-4 glow-text">PRIMAS NEURAL INTERFACE</h2>
@@ -189,18 +189,18 @@ export default function Home() {
                   Advanced AI system ready for deployment. Initialize neural connection to begin quantum processing.
                 </p>
                 <div className="glass-panel p-6 rounded-xl max-w-lg">
-                  <h3 className="text-lg font-semibold mb-3 text-neon-green">System Capabilities</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-accent-blue">System Capabilities</h3>
                   <div className="grid grid-cols-1 gap-3 text-sm">
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-neon-green rounded-full"></div>
+                      <div className="w-2 h-2 bg-accent-blue rounded-full"></div>
                       <span>Quantum processing algorithms</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-neon-blue rounded-full"></div>
+                      <div className="w-2 h-2 bg-accent-light rounded-full"></div>
                       <span>Neural network integration</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-neon-green rounded-full"></div>
+                      <div className="w-2 h-2 bg-accent-blue rounded-full"></div>
                       <span>Real-time data analysis</span>
                     </div>
                   </div>
@@ -215,14 +215,14 @@ export default function Home() {
                   >
                     <div className="flex items-start space-x-4 max-w-4xl">
                       {message.role === 'assistant' && (
-                        <div className="w-10 h-10 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow">
-                          <Bot className="w-5 h-5 text-black" />
+                        <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow">
+                          <Bot className="w-5 h-5 text-white" />
                         </div>
                       )}
                       
                       <div className={`rounded-2xl p-6 ${
                         message.role === 'user'
-                          ? 'bg-gradient-to-r from-neon-green/20 to-neon-blue/20 border border-neon-green/30 ml-auto tech-button'
+                          ? 'bg-gradient-to-r from-professional-500/20 to-professional-600/20 border border-professional-500/30 ml-auto tech-button'
                           : 'glass-panel'
                       }`}>
                         {message.role === 'assistant' ? (
@@ -233,23 +233,23 @@ export default function Home() {
                               code({children, className, ...props}) {
                                 const isInline = !className
                                 return isInline ? (
-                                  <code className="bg-black/50 border border-neon-green/30 px-2 py-1 rounded text-sm text-neon-green font-mono" {...props}>
+                                  <code className="bg-black/50 border border-professional-500/30 px-2 py-1 rounded text-sm text-accent-blue font-mono" {...props}>
                                     {children}
                                   </code>
                                 ) : (
-                                  <pre className="bg-black/50 border border-neon-green/30 p-4 rounded-xl overflow-x-auto my-4">
-                                    <code className="text-neon-green font-mono text-sm" {...props}>{children}</code>
+                                  <pre className="bg-black/50 border border-professional-500/30 p-4 rounded-xl overflow-x-auto my-4">
+                                    <code className="text-accent-blue font-mono text-sm" {...props}>{children}</code>
                                   </pre>
                                 )
                               },
-                              h1: ({children}) => <h1 className="text-2xl font-bold text-neon-green mb-4 glow-text">{children}</h1>,
-                              h2: ({children}) => <h2 className="text-xl font-bold text-neon-green mb-3 glow-text">{children}</h2>,
-                              h3: ({children}) => <h3 className="text-lg font-bold text-neon-blue mb-2">{children}</h3>,
-                              strong: ({children}) => <strong className="text-neon-green font-semibold">{children}</strong>,
+                              h1: ({children}) => <h1 className="text-2xl font-bold text-accent-blue mb-4 glow-text">{children}</h1>,
+                              h2: ({children}) => <h2 className="text-xl font-bold text-accent-blue mb-3 glow-text">{children}</h2>,
+                              h3: ({children}) => <h3 className="text-lg font-bold text-accent-light mb-2">{children}</h3>,
+                              strong: ({children}) => <strong className="text-accent-blue font-semibold">{children}</strong>,
                               ul: ({children}) => <ul className="list-none space-y-2 my-4">{children}</ul>,
                               li: ({children}) => (
                                 <li className="flex items-start space-x-2">
-                                  <div className="w-1.5 h-1.5 bg-neon-green rounded-full mt-2 flex-shrink-0"></div>
+                                  <div className="w-1.5 h-1.5 bg-accent-blue rounded-full mt-2 flex-shrink-0"></div>
                                   <span>{children}</span>
                                 </li>
                               )
@@ -274,15 +274,15 @@ export default function Home() {
                 {isLoading && (
                   <div className="flex justify-start">
                     <div className="flex items-start space-x-4 max-w-4xl">
-                      <div className="w-10 h-10 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow">
-                        <Bot className="w-5 h-5 text-black" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow">
+                        <Bot className="w-5 h-5 text-white" />
                       </div>
                       <div className="glass-panel rounded-2xl p-6">
                         <div className="flex items-center space-x-3">
                           <div className="flex space-x-1">
-                            <div className="w-3 h-3 bg-neon-green rounded-full typing-animation"></div>
-                            <div className="w-3 h-3 bg-neon-blue rounded-full typing-animation"></div>
-                            <div className="w-3 h-3 bg-neon-green rounded-full typing-animation"></div>
+                            <div className="w-3 h-3 bg-accent-blue rounded-full typing-animation"></div>
+                            <div className="w-3 h-3 bg-accent-light rounded-full typing-animation"></div>
+                            <div className="w-3 h-3 bg-accent-blue rounded-full typing-animation"></div>
                           </div>
                           <span className="text-sm text-gray-400">Neural processing active...</span>
                         </div>
@@ -296,7 +296,7 @@ export default function Home() {
           </div>
 
           {/* Enhanced Input */}
-          <div className="glass-panel border-t border-neon-green/20 p-6">
+          <div className="glass-panel border-t border-professional-500/20 p-6">
             <form onSubmit={handleSubmit} className="relative max-w-5xl mx-auto">
               <div className="flex items-end space-x-4">
                 <div className="flex-1 relative">
@@ -326,18 +326,18 @@ export default function Home() {
                 >
                   <div className="relative z-10">
                     {isLoading ? (
-                      <div className="w-6 h-6 border-2 border-neon-green border-t-transparent rounded-full animate-spin" />
+                      <div className="w-6 h-6 border-2 border-accent-blue border-t-transparent rounded-full animate-spin" />
                     ) : (
-                      <Send className="w-6 h-6 text-neon-green group-hover:text-white transition-colors" />
+                      <Send className="w-6 h-6 text-accent-blue group-hover:text-white transition-colors" />
                     )}
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-neon-green to-neon-blue opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-professional-500 to-professional-600 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 </button>
               </div>
               <div className="flex items-center justify-between mt-3 text-xs text-gray-500">
                 <span>Press Enter to send • Shift + Enter for new line</span>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-accent-blue rounded-full animate-pulse"></div>
                   <span>System Online</span>
                 </div>
               </div>
