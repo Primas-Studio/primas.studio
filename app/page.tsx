@@ -260,9 +260,10 @@ export default function Home() {
                               remarkPlugins={[remarkGfm]}
                               className="prose prose-invert prose-sm max-w-none"
                               components={{
-                                code: ({node, inline, className, children, ...props}) => {
+                                code: ({node, className, children, ...props}: any) => {
                                   const match = /language-(\w+)/.exec(className || '')
-                                  return !inline && match ? (
+                                  const isInline = !node?.position
+                                  return !isInline && match ? (
                                     <div className="bg-black/50 rounded-md p-3 my-2 border border-white/10">
                                       <code className="text-sm text-green-400" {...props}>
                                         {children}
