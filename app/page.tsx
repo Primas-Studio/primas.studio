@@ -82,8 +82,12 @@ export default function Home() {
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-professional-500/20">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-lg flex items-center justify-center pulse-glow">
-                  <Cpu className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-lg flex items-center justify-center pulse-glow overflow-hidden">
+                  <img 
+                    src="https://exbjkocdbrfniwmdrdih.supabase.co/storage/v1/object/public/assets/primas.png" 
+                    alt="Primas Logo" 
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold glow-text">PRIMAS.AI</h1>
@@ -166,7 +170,13 @@ export default function Home() {
               <Menu className="w-5 h-5" />
             </button>
             <div className="flex items-center space-x-2">
-              <Cpu className="w-5 h-5 text-accent-blue" />
+              <div className="w-5 h-5 rounded flex items-center justify-center">
+                <img 
+                  src="https://exbjkocdbrfniwmdrdih.supabase.co/storage/v1/object/public/assets/primas.png" 
+                  alt="Primas Logo" 
+                  className="w-5 h-5 object-contain"
+                />
+              </div>
               <h1 className="text-lg font-bold glow-text">PRIMAS.AI</h1>
             </div>
             <div className="w-11"></div>
@@ -177,8 +187,12 @@ export default function Home() {
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full p-8 text-center">
                 <div className="relative mb-8">
-                  <div className="w-24 h-24 bg-gradient-to-r from-professional-500 to-professional-600 rounded-2xl flex items-center justify-center pulse-glow animate-float">
-                    <Bot className="w-12 h-12 text-white" />
+                  <div className="w-24 h-24 bg-gradient-to-r from-professional-500 to-professional-600 rounded-2xl flex items-center justify-center pulse-glow animate-float overflow-hidden">
+                    <img 
+                      src="https://exbjkocdbrfniwmdrdih.supabase.co/storage/v1/object/public/assets/primas.png" 
+                      alt="Primas Logo" 
+                      className="w-16 h-16 object-contain"
+                    />
                   </div>
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent-blue rounded-full flex items-center justify-center">
                     <Zap className="w-3 h-3 text-white" />
@@ -215,8 +229,12 @@ export default function Home() {
                   >
                     <div className="flex items-start space-x-4 max-w-4xl">
                       {message.role === 'assistant' && (
-                        <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow">
-                          <Bot className="w-5 h-5 text-white" />
+                        <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow overflow-hidden">
+                          <img 
+                            src="https://exbjkocdbrfniwmdrdih.supabase.co/storage/v1/object/public/assets/primas.png" 
+                            alt="Primas Logo" 
+                            className="w-6 h-6 object-contain"
+                          />
                         </div>
                       )}
                       
@@ -274,8 +292,12 @@ export default function Home() {
                 {isLoading && (
                   <div className="flex justify-start">
                     <div className="flex items-start space-x-4 max-w-4xl">
-                      <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow">
-                        <Bot className="w-5 h-5 text-white" />
+                      <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow overflow-hidden">
+                        <img 
+                          src="https://exbjkocdbrfniwmdrdih.supabase.co/storage/v1/object/public/assets/primas.png" 
+                          alt="Primas Logo" 
+                          className="w-6 h-6 object-contain"
+                        />
                       </div>
                       <div className="glass-panel rounded-2xl p-6">
                         <div className="flex items-center space-x-3">

@@ -14,8 +14,12 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
     <div className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
       <div className="flex items-start space-x-4 max-w-4xl">
         {message.role === 'assistant' && (
-          <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow relative">
-            <Bot className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 bg-gradient-to-r from-professional-500 to-professional-600 rounded-xl flex items-center justify-center flex-shrink-0 pulse-glow relative overflow-hidden">
+            <img 
+              src="https://exbjkocdbrfniwmdrdih.supabase.co/storage/v1/object/public/assets/primas.png" 
+              alt="Primas Logo" 
+              className="w-6 h-6 object-contain"
+            />
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent-blue rounded-full flex items-center justify-center">
               <Zap className="w-2 h-2 text-white" />
             </div>
