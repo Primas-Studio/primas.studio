@@ -1,15 +1,19 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Primas.AI - Neural Interface',
-  description: 'Advanced AI neural interface powered by Primas technology - Professional chat assistant with quantum processing capabilities',
-  keywords: 'AI, neural interface, chat, assistant, Primas, quantum processing',
+  title: 'Primas Studio - AI Research & Development Platform',
+  description: 'Professional AI research platform for developers, researchers, and enthusiasts. Download, experiment, and collaborate with Ollama LLM models including Llama 3, Mistral, and Gemma.',
+  keywords: 'AI research, LLM models, Ollama, Llama 3, Mistral, Gemma, AI development, machine learning, research platform, AI collaboration',
   authors: [{ name: 'Primas Studio' }],
-  viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
