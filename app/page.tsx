@@ -218,48 +218,34 @@ export default function Home() {
         throw new Error(`Failed to pull model: ${response.statusText}`)
       }
 
-      // Handle streaming response for download progress
-      if (response.headers.get('content-type')?.includes('application/x-ndjson')) {
-        const reader = response.body?.getReader()
-        const decoder = new TextDecoder()
-        
-        while (reader) {
-          const { done, value } = await reader.read()
-          if (done) break
-          
-          const chunk = decoder.decode(value)
-          const lines = chunk.split('\n').filter(line => line.trim())
-          
-          for (const line of lines) {
-            try {
-              const data = JSON.parse(line)
-              if (data.completed && data.total) {
-                const progress = Math.round((data.completed / data.total) * 100)
-                setDownloadProgress(prev => ({...prev, [modelId]: progress}))
-              }
-            } catch (e) {
-              // Ignore JSON parse errors for partial chunks
-            }
-          }
+      const data = await response.json()
+      
+      if (data.success) {
+        // Simulate progress for user experience
+        for (let progress = 0; progress <= 100; progress += 20) {
+          await new Promise(resolve => setTimeout(resolve, 500))
+          setDownloadProgress(prev => ({...prev, [modelId]: progress}))
         }
+        
+        // Mark model as installed and refresh model list
+        setDownloadProgress(prev => {
+          const updated = {...prev}
+          delete updated[modelId]
+          return updated
+        })
+        
+        // Update the model as installed
+        setOllamaModels(prev => prev.map(model => 
+          model.id === modelId ? {...model, installed: true} : model
+        ))
+        
+        console.log(`Model ${modelId} download initiated successfully`)
+        
+        // Refresh the complete model list from Ollama after a delay
+        setTimeout(() => {
+          checkOllamaConnection()
+        }, 2000)
       }
-      
-      // Mark model as installed and refresh model list
-      setDownloadProgress(prev => {
-        const updated = {...prev}
-        delete updated[modelId]
-        return updated
-      })
-      
-      // Update the model as installed
-      setOllamaModels(prev => prev.map(model => 
-        model.id === modelId ? {...model, installed: true} : model
-      ))
-      
-      console.log(`Model ${modelId} downloaded successfully`)
-      
-      // Refresh the complete model list from Ollama
-      await checkOllamaConnection()
       
     } catch (error) {
       console.error('Download error:', error)

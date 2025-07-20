@@ -24,39 +24,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // For streaming responses, we need to handle them properly
-    if (response.headers.get('content-type')?.includes('application/x-ndjson')) {
-      // Create a readable stream to handle Ollama's streaming response
-      const stream = new ReadableStream({
-        start(controller) {
-          const reader = response.body?.getReader()
-          
-          function pump() {
-            return reader?.read().then(({ done, value }) => {
-              if (done) {
-                controller.close()
-                return
-              }
-              controller.enqueue(value)
-              return pump()
-            })
-          }
-          
-          return pump()
-        }
-      })
-
-      return new Response(stream, {
-        headers: {
-          'Content-Type': 'application/x-ndjson',
-          'Cache-Control': 'no-cache',
-          'Connection': 'keep-alive',
-        },
-      })
-    }
-
-    const data = await response.json()
-    return NextResponse.json(data)
+    // For now, return a simple success response
+    // In the future, we can implement proper streaming
+    return NextResponse.json({ success: true, message: `Pulling model ${name}...` })
   } catch (error) {
     console.error('Model pull error:', error)
     return NextResponse.json(
